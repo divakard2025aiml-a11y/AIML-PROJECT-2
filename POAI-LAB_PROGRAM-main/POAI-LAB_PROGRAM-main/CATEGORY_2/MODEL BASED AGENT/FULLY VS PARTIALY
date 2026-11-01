@@ -1,0 +1,45 @@
+# Model-Based Agent - Security Monitoring Robot
+
+def security_robot(environment):
+
+    print("\n------ Security Monitoring Robot ------")
+
+    if environment == "fully":
+
+        print("Environment : Fully Observable")
+        print("Percept     : All Cameras and Sensors Available")
+        print("Memory      : Complete Security Data Stored")
+        print("Action      : Monitor Entire Building")
+        print("Status      : Security Maintained")
+
+    elif environment == "partial":
+
+        print("Environment : Partially Observable")
+        print("Percept     : Some Areas Not Visible")
+        print("Memory      : Uses Previous Security Records")
+        print("Action      : Predict and Monitor Threats")
+        print("Status      : Security Maintained")
+
+    else:
+        print("Invalid Input!")
+
+
+while True:
+
+    print("\n1. Fully Observable")
+    print("2. Partially Observable")
+    print("3. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        security_robot("fully")
+
+    elif choice == "2":
+        security_robot("partial")
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid Choice!")

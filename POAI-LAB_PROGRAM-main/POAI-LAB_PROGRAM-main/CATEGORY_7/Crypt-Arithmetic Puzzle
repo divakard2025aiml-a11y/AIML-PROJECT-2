@@ -1,0 +1,39 @@
+# Crypt-Arithmetic using CSP
+
+from itertools import permutations
+
+letters = 'SENDMORY'
+
+digits = range(10)
+
+# Generate unique digit assignments
+for p in permutations(digits, 8):
+
+    S, E, N, D, M, O, R, Y = p
+
+    # First digits cannot be zero
+    if S == 0 or M == 0:
+        continue
+
+    # Convert letters into numbers
+    SEND = 1000*S + 100*E + 10*N + D
+
+    MORE = 1000*M + 100*O + 10*R + E
+
+    MONEY = 10000*M + 1000*O + 100*N + 10*E + Y
+
+    # Check condition
+    if SEND + MORE == MONEY:
+
+        print("Solution Found!")
+
+        print("SEND =", SEND)
+        print("MORE =", MORE)
+        print("MONEY =", MONEY)
+
+        print("\nLetter Values:")
+
+        for letter, digit in zip(letters, p):
+            print(letter, "=", digit)
+
+        break

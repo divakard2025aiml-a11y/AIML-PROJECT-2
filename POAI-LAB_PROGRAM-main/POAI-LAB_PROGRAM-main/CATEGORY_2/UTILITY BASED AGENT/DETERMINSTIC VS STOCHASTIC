@@ -1,0 +1,46 @@
+# Utility-Based Agent - Weather-Based Crop Advisor
+
+def crop_advisor(environment):
+
+    print("\n------ Weather-Based Crop Advisor ------")
+
+    if environment == "deterministic":
+
+        print("Environment : Deterministic")
+        print("Percept     : Fixed Weather Condition")
+        print("Utility     : Select Best Crop")
+        print("Action      : Give Farming Recommendation")
+        print("Status      : Crop Planning Optimized")
+
+    elif environment == "stochastic":
+
+        print("Environment : Stochastic")
+        print("Percept     : Weather Changes Randomly")
+        print("Utility     : Minimize Farming Risk")
+        print("Action      : Update Crop Recommendation")
+        print("Status      : Crop Planning Optimized")
+
+    else:
+        print("Invalid Input!")
+
+
+while True:
+
+    print("\n====== Crop Advisor Menu ======")
+    print("1. Deterministic Environment")
+    print("2. Stochastic Environment")
+    print("3. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        crop_advisor("deterministic")
+
+    elif choice == "2":
+        crop_advisor("stochastic")
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid Choice!")

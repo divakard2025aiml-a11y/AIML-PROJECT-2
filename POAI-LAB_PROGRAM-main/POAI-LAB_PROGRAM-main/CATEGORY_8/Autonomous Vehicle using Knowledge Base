@@ -1,0 +1,76 @@
+# Autonomous Vehicle using Knowledge Base
+
+# Facts
+facts = [
+    "obstacle_detected",
+    "red_signal",
+    "pedestrian_detected"
+]
+
+# Rules
+rules = {
+    "apply_brakes": ["obstacle_detected"],
+    "stop_vehicle": ["red_signal"],
+    "slow_down": ["pedestrian_detected"],
+    "safe_stop": ["apply_brakes", "stop_vehicle"]
+}
+
+
+# Forward Chaining
+def forward_chaining():
+
+    known = facts.copy()
+
+    while True:
+
+        new_fact = False
+
+        for result, conditions in rules.items():
+
+            if all(c in known for c in conditions):
+
+                if result not in known:
+
+                    known.append(result)
+
+                    print("Derived:", result)
+
+                    new_fact = True
+
+        if not new_fact:
+            break
+
+    return known
+
+
+# Backward Chaining
+def backward_chaining(goal, known):
+
+    if goal in known:
+        return True
+
+    if goal not in rules:
+        return False
+
+    for condition in rules[goal]:
+
+        if not backward_chaining(condition, known):
+            return False
+
+    return True
+
+
+# Main Program
+print("Initial Facts:", facts)
+
+print("\nForward Chaining:")
+known = forward_chaining()
+
+print("\nBackward Chaining:")
+
+goal = "safe_stop"
+
+if backward_chaining(goal, known):
+    print(goal, "is proved")
+else:
+    print(goal, "is not proved")

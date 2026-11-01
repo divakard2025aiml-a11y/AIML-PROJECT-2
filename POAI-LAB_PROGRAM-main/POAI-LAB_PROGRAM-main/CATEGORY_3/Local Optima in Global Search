@@ -1,0 +1,180 @@
+# LOCAL OPTIMUM USING GLOBAL SEARCH
+
+import random
+
+
+states = {
+    'A': 4,
+    'B': 7,
+    'C': 10,    
+    'D': 6,
+    'E': 15,    
+    'F': 8,
+    'G': 5,
+    'H': 9
+}
+
+
+neighbors = {
+    'A': ['B'],
+    'B': ['A', 'C'],
+    'C': ['B', 'D'],
+    'D': ['C', 'E'],
+    'E': ['D', 'F'],
+    'F': ['E', 'G'],
+    'G': ['F', 'H'],
+    'H': ['G']
+}
+
+
+def global_search(start, iterations=10, exploration_rate=0.2):
+
+    current = start
+    best = current
+
+    print("GLOBAL SEARCH")
+    print("----------------------------")
+    print("Starting State:", current)
+    print("Fitness:", states[current])
+
+    for i in range(iterations):
+
+        print("\nIteration:", i + 1)
+
+ 
+        if random.random() < exploration_rate:
+
+            candidate = random.choice(list(states.keys()))
+
+            print("Exploration")
+            print("Random State:", candidate)
+            print("Fitness:", states[candidate])
+
+        else:
+
+            print("Exploitation")
+
+            candidate = max(
+                neighbors[current],
+                key=lambda x: states[x]
+            )
+
+            print("Neighbour State:", candidate)
+            print("Fitness:", states[candidate])
+
+
+        if states[candidate] > states[current]:
+
+            current = candidate
+
+            print("Moved to:", current)
+
+        else:
+
+            print("No improvement.")
+
+        if states[current] > states[best]:
+
+            best = current
+
+    print("\nSearch Completed")
+    print("----------------------------")
+    print("Best State Found:", best)
+    print("Fitness:", states[best])
+
+    return best
+
+
+
+result = global_search(
+    start='A',
+    iterations=10,
+    exploration_rate=0.2
+)
+
+print("\nFinal Result")
+print("----------------------------")
+print("State:", result)
+print("Fitness:", states[result])
+
+
+
+
+==========================================
+OUTPUT:
+=============================================
+GLOBAL SEARCH
+----------------------------
+Starting State: A
+Fitness: 4
+
+Iteration: 1
+Exploitation
+Neighbour State: B
+Fitness: 7
+Moved to: B
+
+Iteration: 2
+Exploitation
+Neighbour State: C
+Fitness: 10
+Moved to: C
+
+Iteration: 3
+Exploitation
+Neighbour State: B
+Fitness: 7
+No improvement.
+
+Iteration: 4
+Exploration
+Random State: C
+Fitness: 10
+No improvement.
+
+Iteration: 5
+Exploitation
+Neighbour State: B
+Fitness: 7
+No improvement.
+
+Iteration: 6
+Exploitation
+Neighbour State: B
+Fitness: 7
+No improvement.
+
+Iteration: 7
+Exploration
+Random State: H
+Fitness: 9
+No improvement.
+
+Iteration: 8
+Exploitation
+Neighbour State: B
+Fitness: 7
+No improvement.
+
+Iteration: 9
+Exploitation
+Neighbour State: B
+Fitness: 7
+No improvement.
+
+Iteration: 10
+Exploration
+Random State: E
+Fitness: 15
+Moved to: E
+
+Search Completed
+----------------------------
+Best State Found: E
+Fitness: 15
+
+Final Result
+----------------------------
+State: E
+Fitness: 15
+

@@ -1,0 +1,47 @@
+# Discrete vs Continuous
+# Smart Attendance System
+
+def attendance_system(environment):
+
+    print("\n------ Smart Attendance System ------")
+
+    if environment == "discrete":
+
+        print("Environment : Discrete")
+        print("Percept     : Student Scans ID Card")
+        print("Goal        : Mark Attendance")
+        print("Action      : Record Attendance")
+        print("Status      : Attendance Completed")
+
+    elif environment == "continuous":
+
+        print("Environment : Continuous")
+        print("Percept     : Camera Detects Students")
+        print("Goal        : Mark Attendance")
+        print("Action      : Update Attendance Automatically")
+        print("Status      : Attendance Completed")
+
+    else:
+        print("Invalid Input!")
+
+
+while True:
+
+    print("\n====== Attendance Menu ======")
+    print("1. Discrete Environment")
+    print("2. Continuous Environment")
+    print("3. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        attendance_system("discrete")
+
+    elif choice == "2":
+        attendance_system("continuous")
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid Choice!")

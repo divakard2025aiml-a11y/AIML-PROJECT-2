@@ -1,0 +1,46 @@
+# Goal-Based Agent - Online Shopping Delivery Planner
+
+def delivery_planner(environment):
+
+    print("\n------ Delivery Planner ------")
+
+    if environment == "static":
+
+        print("Environment : Static")
+        print("Percept     : Fixed Delivery Route")
+        print("Goal        : Deliver Package")
+        print("Action      : Follow Planned Route")
+        print("Status      : Delivery Completed")
+
+    elif environment == "dynamic":
+
+        print("Environment : Dynamic")
+        print("Percept     : Traffic Conditions Change")
+        print("Goal        : Deliver Package")
+        print("Action      : Select New Route")
+        print("Status      : Delivery Completed")
+
+    else:
+        print("Invalid Input!")
+
+
+while True:
+
+    print("\n====== Delivery Menu ======")
+    print("1. Static Environment")
+    print("2. Dynamic Environment")
+    print("3. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        delivery_planner("static")
+
+    elif choice == "2":
+        delivery_planner("dynamic")
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid Choice!")

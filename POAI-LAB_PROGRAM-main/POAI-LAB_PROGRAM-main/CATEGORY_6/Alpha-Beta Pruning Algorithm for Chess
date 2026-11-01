@@ -1,0 +1,81 @@
+import chess
+
+# Piece values
+values = {
+    chess.PAWN: 1,
+    chess.KNIGHT: 3,
+    chess.BISHOP: 3,
+    chess.ROOK: 5,
+    chess.QUEEN: 9,
+    chess.KING: 100
+}
+
+# Evaluate board
+def evaluate(board):
+
+    if board.is_checkmate():
+        return -10000
+
+    if board.is_game_over():
+        return 0
+
+    score = 0
+
+    for piece in board.piece_map().values():
+
+        value = values[piece.piece_type]
+
+        if piece.color == chess.WHITE:
+            score += value
+        else:
+            score -= value
+
+    return score if board.turn == chess.WHITE else -score
+
+
+# Alpha-Beta Pruning
+def alpha_beta(board, depth, alpha, beta):
+
+    if depth == 0 or board.is_game_over():
+        return evaluate(board), None
+
+    best_move = None
+    best_score = -float('inf')
+
+    for move in board.legal_moves:
+
+        board.push(move)
+
+        score, _ = alpha_beta(
+            board, depth - 1, -beta, -alpha
+        )
+
+        score = -score
+
+        board.pop()
+
+        if score > best_score:
+            best_score = score
+            best_move = move
+
+        alpha = max(alpha, score)
+
+        # Pruning condition
+        if alpha >= beta:
+            break
+
+    return best_score, best_move
+
+
+# Main program
+board = chess.Board()
+
+print("Initial Chess Board:")
+print(board)
+
+score, move = alpha_beta(
+    board, 3, -float('inf'), float('inf')
+)
+
+print("\nBest Move:", board.san(move))
+print("Evaluation Score:", score)

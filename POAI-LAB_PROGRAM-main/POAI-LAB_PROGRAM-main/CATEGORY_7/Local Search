@@ -1,0 +1,81 @@
+# Local Search using 4 Queens
+
+import random
+
+n = 4
+
+# Random initial position
+board = [random.randint(0, n-1) for i in range(n)]
+
+
+# Count conflicts
+def conflicts(board):
+
+    count = 0
+
+    for i in range(n):
+
+        for j in range(i+1, n):
+
+            if board[i] == board[j]:
+                count += 1
+
+            elif abs(board[i] - board[j]) == abs(i-j):
+                count += 1
+
+    return count
+
+
+# Hill Climbing
+def solve():
+
+    global board
+
+    while True:
+
+        current = conflicts(board)
+
+        print("Board:", board, "Conflicts:", current)
+
+        if current == 0:
+            print("Solution Found!")
+            break
+
+        best = board[:]
+        best_score = current
+
+        for col in range(n):
+
+            for row in range(n):
+
+                temp = board[:]
+                temp[col] = row
+
+                score = conflicts(temp)
+
+                if score < best_score:
+                    best_score = score
+                    best = temp
+
+        if best_score == current:
+            print("Local optimum reached. Restarting...")
+            board = [random.randint(0, n-1) for i in range(n)]
+        else:
+            board = best
+
+
+# Main program
+solve()
+
+print("\nFinal Chessboard:")
+
+for row in range(n):
+
+    for col in range(n):
+
+        if board[col] == row:
+            print("Q", end=" ")
+        else:
+            print(".", end=" ")
+
+    print()

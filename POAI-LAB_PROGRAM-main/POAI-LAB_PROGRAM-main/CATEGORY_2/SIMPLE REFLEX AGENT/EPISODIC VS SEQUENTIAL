@@ -1,0 +1,47 @@
+# Episodic vs Sequential
+# Smart Water Distribution System
+
+def water_distribution(environment):
+
+    print("\n------ Smart Water Distribution System ------")
+
+    if environment == "episodic":
+
+        print("Environment : Episodic")
+        print("Percept     : Single Water Request")
+        print("Goal        : Supply Water")
+        print("Action      : Allocate Water")
+        print("Status      : Request Completed")
+
+    elif environment == "sequential":
+
+        print("Environment : Sequential")
+        print("Percept     : Changing Water Demand")
+        print("Goal        : Maximize Water Efficiency")
+        print("Action      : Adjust Water Distribution")
+        print("Status      : System Optimized")
+
+    else:
+        print("Invalid Input!")
+
+
+while True:
+
+    print("\n====== Water Distribution Menu ======")
+    print("1. Episodic Environment")
+    print("2. Sequential Environment")
+    print("3. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        water_distribution("episodic")
+
+    elif choice == "2":
+        water_distribution("sequential")
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid Choice!")

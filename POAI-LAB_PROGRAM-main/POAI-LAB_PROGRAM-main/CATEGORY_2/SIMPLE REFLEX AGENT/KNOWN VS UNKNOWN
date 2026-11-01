@@ -1,0 +1,49 @@
+# Known vs Unknown
+# Rescue Robot
+
+def rescue_robot(environment):
+
+    print("\n------ Rescue Robot ------")
+
+    if environment == "known":
+
+        print("Environment : Known")
+        print("Percept     : Map and Rescue Location Available")
+        print("Goal        : Rescue People")
+        print("Action      : Follow Known Path")
+        print("Status      : Rescue Completed")
+
+    elif environment == "unknown":
+
+        print("Environment : Unknown")
+        print("Percept     : Area Information Missing")
+        print("Goal        : Rescue People")
+        print("Action      : Explore New Paths")
+        print("Status      : Rescue Completed")
+
+    else:
+        print("Invalid Input!")
+
+
+while True:
+
+    print("\n====== Rescue Robot Menu ======")
+    print("1. Known Environment")
+    print("2. Unknown Environment")
+    print("3. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        rescue_robot("known")
+
+    elif choice == "2":
+        rescue_robot("unknown")
+
+    elif choice == "3":
+        print("System Shutdown.")
+        break
+
+    else:
+        print("Invalid Choice!")
+

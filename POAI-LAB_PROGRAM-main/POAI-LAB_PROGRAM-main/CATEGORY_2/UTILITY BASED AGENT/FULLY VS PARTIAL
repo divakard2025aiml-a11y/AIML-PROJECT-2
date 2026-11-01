@@ -1,0 +1,46 @@
+# Utility-Based Agent - Financial Investment Advisor
+
+def investment_advisor(environment):
+
+    print("\n------ Financial Investment Advisor ------")
+
+    if environment == "fully":
+
+        print("Environment : Fully Observable")
+        print("Percept     : Complete Market Data Available")
+        print("Utility     : Select Maximum Profit Investment")
+        print("Action      : Recommend Best Investment Plan")
+        print("Status      : Investment Optimized")
+
+    elif environment == "partial":
+
+        print("Environment : Partially Observable")
+        print("Percept     : Some Market Data Missing")
+        print("Utility     : Balance Risk and Return")
+        print("Action      : Estimate and Recommend Plan")
+        print("Status      : Investment Optimized")
+
+    else:
+        print("Invalid Input!")
+
+
+while True:
+
+    print("\n====== Investment Advisor Menu ======")
+    print("1. Fully Observable")
+    print("2. Partially Observable")
+    print("3. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        investment_advisor("fully")
+
+    elif choice == "2":
+        investment_advisor("partial")
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid Choice!")

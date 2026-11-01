@@ -1,0 +1,47 @@
+# Deterministic vs Stochastic
+# Rescue Drone
+
+def rescue_drone(environment):
+
+    print("\n------ Rescue Drone ------")
+
+    if environment == "deterministic":
+
+        print("Environment : Deterministic")
+        print("Percept     : Clear Weather")
+        print("Goal        : Reach Rescue Location")
+        print("Action      : Follow Planned Route")
+        print("Status      : Goal Achieved")
+
+    elif environment == "stochastic":
+
+        print("Environment : Stochastic")
+        print("Percept     : Wind or Rain")
+        print("Goal        : Reach Rescue Location")
+        print("Action      : Adjust Flight Route")
+        print("Status      : Goal Achieved")
+
+    else:
+        print("Invalid Input!")
+
+
+while True:
+
+    print("\n====== Rescue Drone Menu ======")
+    print("1. Deterministic Environment")
+    print("2. Stochastic Environment")
+    print("3. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        rescue_drone("deterministic")
+
+    elif choice == "2":
+        rescue_drone("stochastic")
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid Choice!")

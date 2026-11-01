@@ -1,0 +1,46 @@
+# Goal-Based Agent - Automated Parking System
+
+def parking_system(environment):
+
+    print("\n------ Automated Parking System ------")
+
+    if environment == "discrete":
+
+        print("Environment : Discrete")
+        print("Percept     : Parking Slot Available")
+        print("Goal        : Park Vehicle Successfully")
+        print("Action      : Select Empty Slot")
+        print("Status      : Parking Completed")
+
+    elif environment == "continuous":
+
+        print("Environment : Continuous")
+        print("Percept     : Vehicle Position Changes")
+        print("Goal        : Park Vehicle Successfully")
+        print("Action      : Adjust Vehicle Movement")
+        print("Status      : Parking Completed")
+
+    else:
+        print("Invalid Input!")
+
+
+while True:
+
+    print("\n====== Parking System Menu ======")
+    print("1. Discrete Environment")
+    print("2. Continuous Environment")
+    print("3. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        parking_system("discrete")
+
+    elif choice == "2":
+        parking_system("continuous")
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid Choice!")

@@ -1,0 +1,46 @@
+# Goal-Based Agent - Medical Diagnosis Assistant
+
+def medical_assistant(environment):
+
+    print("\n------ Medical Diagnosis Assistant ------")
+
+    if environment == "fully":
+
+        print("Environment : Fully Observable")
+        print("Percept     : Complete Patient Reports Available")
+        print("Goal        : Identify Disease Correctly")
+        print("Action      : Analyze All Medical Data")
+        print("Status      : Diagnosis Completed")
+
+    elif environment == "partial":
+
+        print("Environment : Partially Observable")
+        print("Percept     : Some Symptoms Missing")
+        print("Goal        : Identify Disease Correctly")
+        print("Action      : Estimate Missing Information")
+        print("Status      : Diagnosis Completed")
+
+    else:
+        print("Invalid Input!")
+
+
+while True:
+
+    print("\n====== Medical Assistant Menu ======")
+    print("1. Fully Observable")
+    print("2. Partially Observable")
+    print("3. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        medical_assistant("fully")
+
+    elif choice == "2":
+        medical_assistant("partial")
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid Choice!")

@@ -1,0 +1,46 @@
+# Utility-Based Agent - Smart Camera System
+
+def camera_system(environment):
+
+    print("\n------ Smart Camera System ------")
+
+    if environment == "discrete":
+
+        print("Environment : Discrete")
+        print("Percept     : Select Camera Mode")
+        print("Utility     : Improve Image Quality")
+        print("Action      : Choose Best Mode")
+        print("Status      : Image Optimized")
+
+    elif environment == "continuous":
+
+        print("Environment : Continuous")
+        print("Percept     : Light and Object Movement Changes")
+        print("Utility     : Capture Best Image")
+        print("Action      : Adjust Focus and Brightness")
+        print("Status      : Image Optimized")
+
+    else:
+        print("Invalid Input!")
+
+
+while True:
+
+    print("\n====== Camera System Menu ======")
+    print("1. Discrete Environment")
+    print("2. Continuous Environment")
+    print("3. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        camera_system("discrete")
+
+    elif choice == "2":
+        camera_system("continuous")
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid Choice!")

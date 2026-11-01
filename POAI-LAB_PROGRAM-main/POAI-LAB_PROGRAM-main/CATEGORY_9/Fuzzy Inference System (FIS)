@@ -1,0 +1,40 @@
+# Fuzzy Inference System for Medical Diagnosis
+
+fever = 80
+cough = 70
+
+# Membership functions
+def membership(value):
+
+    if value <= 30:
+        return 0
+
+    elif value <= 60:
+        return (value - 30) / 30
+
+    else:
+        return 1
+
+
+# Calculate membership values
+fever_level = membership(fever)
+cough_level = membership(cough)
+
+# Fuzzy rule
+risk = (fever_level + cough_level) / 2
+
+print("Fuzzy Medical Diagnosis")
+
+print("Fever Membership:", fever_level)
+print("Cough Membership:", cough_level)
+
+print("Risk Level:", risk)
+
+if risk >= 0.7:
+    print("High Risk - Medical Evaluation Recommended")
+
+elif risk >= 0.4:
+    print("Medium Risk")
+
+else:
+    print("Low Risk")

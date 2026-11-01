@@ -1,0 +1,42 @@
+# Model-Based Agent - Automatic Laundry System
+
+def laundry_system(environment):
+
+    print("\n------ Automatic Laundry System ------")
+
+    if environment == "discrete":
+
+        print("Environment : Discrete")
+        print("Percept     : Selected Washing Mode")
+        print("Memory      : Previous Wash Settings Stored")
+        print("Action      : Start Wash Cycle")
+        print("Status      : Laundry Completed")
+
+    elif environment == "continuous":
+
+        print("Environment : Continuous")
+        print("Percept     : Water Level and Dirt Level")
+        print("Memory      : Previous Wash Data Used")
+        print("Action      : Adjust Washing Process")
+        print("Status      : Laundry Completed")
+
+    else:
+        print("Invalid Input!")
+
+
+while True:
+
+    print("\n1. Discrete Environment")
+    print("2. Continuous Environment")
+    print("3. Exit")
+
+    choice=input("Enter choice: ")
+
+    if choice=="1":
+        laundry_system("discrete")
+
+    elif choice=="2":
+        laundry_system("continuous")
+
+    elif choice=="3":
+        break

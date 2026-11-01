@@ -1,0 +1,144 @@
+# Memory Bounded Search using IDA*
+
+start = (1, 2, 3,
+         4, 0, 6,
+         7, 5, 8)
+
+goal = (1, 2, 3,
+        4, 5, 6,
+        7, 8, 0)
+
+
+# Manhattan Distance
+def heuristic(state):
+
+    distance = 0
+
+    for i in range(9):
+
+        if state[i] != 0:
+
+            value = state[i] - 1
+
+            x1, y1 = divmod(i, 3)
+            x2, y2 = divmod(value, 3)
+
+            distance += abs(x1-x2) + abs(y1-y2)
+
+    return distance
+
+
+# Generate neighboring states
+def neighbors(state):
+
+    result = []
+
+    pos = state.index(0)
+
+    row, col = divmod(pos, 3)
+
+    moves = [
+        (-1, 0), (1, 0),
+        (0, -1), (0, 1)
+    ]
+
+    for dx, dy in moves:
+
+        r = row + dx
+        c = col + dy
+
+        if 0 <= r < 3 and 0 <= c < 3:
+
+            new_pos = r * 3 + c
+
+            temp = list(state)
+
+            temp[pos], temp[new_pos] = (
+                temp[new_pos], temp[pos]
+            )
+
+            result.append(tuple(temp))
+
+    return result
+
+
+# IDA* Search
+def search(state, g, bound, path, visited):
+
+    f = g + heuristic(state)
+
+    if f > bound:
+        return f
+
+    if state == goal:
+        return True
+
+    minimum = float('inf')
+
+    for next_state in neighbors(state):
+
+        if next_state not in visited:
+
+            path.append(next_state)
+            visited.add(next_state)
+
+            result = search(
+                next_state, g+1, bound,
+                path, visited
+            )
+
+            if result is True:
+                return True
+
+            if result < minimum:
+                minimum = result
+
+            path.pop()
+            visited.remove(next_state)
+
+    return minimum
+
+
+# Main program
+def ida_star():
+
+    bound = heuristic(start)
+
+    path = [start]
+
+    visited = {start}
+
+    while True:
+
+        print("Current Bound:", bound)
+
+        result = search(
+            start, 0, bound, path, visited
+        )
+
+        if result is True:
+            return path
+
+        if result == float('inf'):
+            return None
+
+        bound = result
+
+
+solution = ida_star()
+
+if solution:
+
+    print("\nSolution Path:")
+
+    for state in solution:
+
+        for i in range(0, 9, 3):
+            print(state[i:i+3])
+
+        print()
+
+    print("Total Moves:", len(solution)-1)
+
+else:
+    print("No solution found")

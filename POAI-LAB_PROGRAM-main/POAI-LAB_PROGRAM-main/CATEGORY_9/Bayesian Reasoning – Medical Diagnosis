@@ -1,0 +1,29 @@
+# Bayesian Reasoning for Medical Diagnosis
+
+# Prior probability
+P_Disease = 0.01
+
+# Probability of symptoms
+P_Fever_Disease = 0.90
+P_Fever_NoDisease = 0.05
+
+# Probability of fever
+P_Fever = (P_Fever_Disease * P_Disease) + \
+          (P_Fever_NoDisease * (1 - P_Disease))
+
+# Bayes theorem
+P_Disease_Fever = (P_Fever_Disease * P_Disease) / P_Fever
+
+print("Bayesian Medical Diagnosis")
+
+print("Prior Probability:", P_Disease)
+
+print("Probability of Fever:", P_Fever)
+
+print("Probability of Disease given Fever:",
+      round(P_Disease_Fever, 4))
+
+if P_Disease_Fever > 0.5:
+    print("Disease Detected")
+else:
+    print("Disease Probability is Low")

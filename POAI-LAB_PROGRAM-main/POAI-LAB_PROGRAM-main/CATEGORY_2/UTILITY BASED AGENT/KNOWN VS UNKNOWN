@@ -1,0 +1,46 @@
+# Utility-Based Agent - Travel Planning Assistant
+
+def travel_planner(environment):
+
+    print("\n------ Travel Planning Assistant ------")
+
+    if environment == "known":
+
+        print("Environment : Known")
+        print("Percept     : Destination Details Available")
+        print("Utility     : Select Cheapest and Comfortable Route")
+        print("Action      : Suggest Best Travel Plan")
+        print("Status      : Travel Optimized")
+
+    elif environment == "unknown":
+
+        print("Environment : Unknown")
+        print("Percept     : New Destination Information")
+        print("Utility     : Compare Available Options")
+        print("Action      : Select Suitable Travel Plan")
+        print("Status      : Travel Optimized")
+
+    else:
+        print("Invalid Input!")
+
+
+while True:
+
+    print("\n====== Travel Planner Menu ======")
+    print("1. Known Environment")
+    print("2. Unknown Environment")
+    print("3. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        travel_planner("known")
+
+    elif choice == "2":
+        travel_planner("unknown")
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid Choice!")

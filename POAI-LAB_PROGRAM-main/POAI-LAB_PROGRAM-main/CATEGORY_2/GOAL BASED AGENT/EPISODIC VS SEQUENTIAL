@@ -1,0 +1,46 @@
+# Goal-Based Agent - Language Learning Assistant
+
+def language_assistant(environment):
+
+    print("\n------ Language Learning Assistant ------")
+
+    if environment == "episodic":
+
+        print("Environment : Episodic")
+        print("Percept     : Single Question Answer")
+        print("Goal        : Improve Language Skill")
+        print("Action      : Check Answer")
+        print("Status      : Learning Completed")
+
+    elif environment == "sequential":
+
+        print("Environment : Sequential")
+        print("Percept     : Previous Lesson Records")
+        print("Goal        : Improve Language Skill")
+        print("Action      : Create Next Learning Plan")
+        print("Status      : Learning Improved")
+
+    else:
+        print("Invalid Input!")
+
+
+while True:
+
+    print("\n====== Language Assistant Menu ======")
+    print("1. Episodic Environment")
+    print("2. Sequential Environment")
+    print("3. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        language_assistant("episodic")
+
+    elif choice == "2":
+        language_assistant("sequential")
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid Choice!")

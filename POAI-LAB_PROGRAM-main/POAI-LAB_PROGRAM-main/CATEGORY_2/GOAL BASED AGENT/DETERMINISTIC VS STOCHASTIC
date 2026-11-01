@@ -1,0 +1,46 @@
+# Goal-Based Agent - Autonomous Underwater Vehicle
+
+def underwater_vehicle(environment):
+
+    print("\n------ Autonomous Underwater Vehicle ------")
+
+    if environment == "deterministic":
+
+        print("Environment : Deterministic")
+        print("Percept     : Clear Underwater Path")
+        print("Goal        : Reach Research Location")
+        print("Action      : Follow Fixed Direction")
+        print("Status      : Mission Completed")
+
+    elif environment == "stochastic":
+
+        print("Environment : Stochastic")
+        print("Percept     : Water Currents Change")
+        print("Goal        : Reach Research Location")
+        print("Action      : Adjust Movement Direction")
+        print("Status      : Mission Completed")
+
+    else:
+        print("Invalid Input!")
+
+
+while True:
+
+    print("\n====== Underwater Vehicle Menu ======")
+    print("1. Deterministic Environment")
+    print("2. Stochastic Environment")
+    print("3. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        underwater_vehicle("deterministic")
+
+    elif choice == "2":
+        underwater_vehicle("stochastic")
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid Choice!")

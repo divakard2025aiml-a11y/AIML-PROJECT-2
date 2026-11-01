@@ -1,0 +1,42 @@
+# Model-Based Agent - Museum Navigation Robot
+
+def museum_robot(environment):
+
+    print("\n------ Museum Navigation Robot ------")
+
+    if environment == "static":
+
+        print("Environment : Static")
+        print("Percept     : Visitor Movement is Stable")
+        print("Memory      : Museum Map Stored")
+        print("Action      : Guide Visitors")
+        print("Status      : Navigation Completed")
+
+    elif environment == "dynamic":
+
+        print("Environment : Dynamic")
+        print("Percept     : Visitor Movement Changes")
+        print("Memory      : Updates Visitor Locations")
+        print("Action      : Change Navigation Route")
+        print("Status      : Navigation Completed")
+
+    else:
+        print("Invalid Input!")
+
+
+while True:
+
+    print("\n1. Static Environment")
+    print("2. Dynamic Environment")
+    print("3. Exit")
+
+    choice=input("Enter choice: ")
+
+    if choice=="1":
+        museum_robot("static")
+
+    elif choice=="2":
+        museum_robot("dynamic")
+
+    elif choice=="3":
+        break

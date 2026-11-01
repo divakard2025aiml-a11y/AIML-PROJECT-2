@@ -1,0 +1,42 @@
+# Model-Based Agent - Personal Health Tracker
+
+def health_tracker(environment):
+
+    print("\n------ Personal Health Tracker ------")
+
+    if environment == "episodic":
+
+        print("Environment : Episodic")
+        print("Percept     : Single Health Record")
+        print("Memory      : Stores Previous Health Data")
+        print("Action      : Analyze Health Status")
+        print("Status      : Report Generated")
+
+    elif environment == "sequential":
+
+        print("Environment : Sequential")
+        print("Percept     : Daily Health Changes")
+        print("Memory      : Tracks Previous Activities")
+        print("Action      : Update Health Plan")
+        print("Status      : Health Improved")
+
+    else:
+        print("Invalid Input!")
+
+
+while True:
+
+    print("\n1. Episodic Environment")
+    print("2. Sequential Environment")
+    print("3. Exit")
+
+    choice=input("Enter choice: ")
+
+    if choice=="1":
+        health_tracker("episodic")
+
+    elif choice=="2":
+        health_tracker("sequential")
+
+    elif choice=="3":
+        break

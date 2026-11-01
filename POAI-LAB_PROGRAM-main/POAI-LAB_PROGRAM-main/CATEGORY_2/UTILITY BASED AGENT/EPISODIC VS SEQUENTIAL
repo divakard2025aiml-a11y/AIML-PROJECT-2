@@ -1,0 +1,46 @@
+# Utility-Based Agent - Online Advertisement Recommender
+
+def advertisement_system(environment):
+
+    print("\n------ Online Advertisement Recommender ------")
+
+    if environment == "episodic":
+
+        print("Environment : Episodic")
+        print("Percept     : Single User Visit")
+        print("Utility     : Show Relevant Advertisement")
+        print("Action      : Recommend Suitable Ad")
+        print("Status      : Recommendation Completed")
+
+    elif environment == "sequential":
+
+        print("Environment : Sequential")
+        print("Percept     : Previous User Click History")
+        print("Utility     : Maximize User Interest")
+        print("Action      : Improve Future Recommendations")
+        print("Status      : Recommendation Improved")
+
+    else:
+        print("Invalid Input!")
+
+
+while True:
+
+    print("\n====== Advertisement Menu ======")
+    print("1. Episodic Environment")
+    print("2. Sequential Environment")
+    print("3. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        advertisement_system("episodic")
+
+    elif choice == "2":
+        advertisement_system("sequential")
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid Choice!")

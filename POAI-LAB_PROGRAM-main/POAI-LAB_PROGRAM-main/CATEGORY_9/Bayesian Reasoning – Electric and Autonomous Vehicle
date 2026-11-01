@@ -1,0 +1,29 @@
+# Bayesian Reasoning for Autonomous Vehicle
+
+# Prior probability of obstacle
+P_Obstacle = 0.20
+
+# Sensor information
+P_Detection_Obstacle = 0.90
+P_Detection_NoObstacle = 0.10
+
+# Probability of sensor detection
+P_Detection = (
+    P_Detection_Obstacle * P_Obstacle
+    + P_Detection_NoObstacle * (1 - P_Obstacle)
+)
+
+# Bayes theorem
+P_Obstacle_Detection = (
+    P_Detection_Obstacle * P_Obstacle
+) / P_Detection
+
+print("Autonomous Vehicle Bayesian Reasoning")
+
+print("Probability of Obstacle:",
+      round(P_Obstacle_Detection, 2))
+
+if P_Obstacle_Detection > 0.5:
+    print("Obstacle Detected - Apply Brakes")
+else:
+    print("No Immediate Obstacle Alert")

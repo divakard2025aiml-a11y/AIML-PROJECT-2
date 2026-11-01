@@ -1,0 +1,42 @@
+# Model-Based Agent - Warehouse Inventory Manager
+
+def inventory_manager(environment):
+
+    print("\n------ Warehouse Inventory Manager ------")
+
+    if environment == "deterministic":
+
+        print("Environment : Deterministic")
+        print("Percept     : Fixed Product Demand")
+        print("Memory      : Previous Stock Records Stored")
+        print("Action      : Manage Inventory")
+        print("Status      : Stock Updated")
+
+    elif environment == "stochastic":
+
+        print("Environment : Stochastic")
+        print("Percept     : Changing Customer Demand")
+        print("Memory      : Uses Sales History")
+        print("Action      : Predict Stock Requirement")
+        print("Status      : Stock Updated")
+
+    else:
+        print("Invalid Input!")
+
+
+while True:
+
+    print("\n1. Deterministic Environment")
+    print("2. Stochastic Environment")
+    print("3. Exit")
+
+    choice=input("Enter choice: ")
+
+    if choice=="1":
+        inventory_manager("deterministic")
+
+    elif choice=="2":
+        inventory_manager("stochastic")
+
+    elif choice=="3":
+        break

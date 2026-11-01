@@ -1,0 +1,47 @@
+# Static vs Dynamic
+# Smart Traffic Signal
+
+def traffic_signal(environment):
+
+    print("\n------ Smart Traffic Signal ------")
+
+    if environment == "static":
+
+        print("Environment : Static")
+        print("Percept     : Traffic Condition Stable")
+        print("Goal        : Manage Traffic Flow")
+        print("Action      : Use Fixed Signal Timing")
+        print("Status      : Traffic Controlled")
+
+    elif environment == "dynamic":
+
+        print("Environment : Dynamic")
+        print("Percept     : Traffic Changes Continuously")
+        print("Goal        : Manage Traffic Flow")
+        print("Action      : Adjust Signal Timing")
+        print("Status      : Traffic Controlled")
+
+    else:
+        print("Invalid Input!")
+
+
+while True:
+
+    print("\n====== Traffic Signal Menu ======")
+    print("1. Static Environment")
+    print("2. Dynamic Environment")
+    print("3. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        traffic_signal("static")
+
+    elif choice == "2":
+        traffic_signal("dynamic")
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid Choice!")

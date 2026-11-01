@@ -1,0 +1,46 @@
+# Goal-Based Agent - Space Exploration Rover
+
+def space_rover(environment):
+
+    print("\n------ Space Exploration Rover ------")
+
+    if environment == "known":
+
+        print("Environment : Known")
+        print("Percept     : Planet Map Available")
+        print("Goal        : Reach Exploration Point")
+        print("Action      : Follow Planned Path")
+        print("Status      : Mission Completed")
+
+    elif environment == "unknown":
+
+        print("Environment : Unknown")
+        print("Percept     : New Planet Area Detected")
+        print("Goal        : Reach Exploration Point")
+        print("Action      : Explore New Routes")
+        print("Status      : Mission Completed")
+
+    else:
+        print("Invalid Input!")
+
+
+while True:
+
+    print("\n====== Space Rover Menu ======")
+    print("1. Known Environment")
+    print("2. Unknown Environment")
+    print("3. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        space_rover("known")
+
+    elif choice == "2":
+        space_rover("unknown")
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid Choice!")

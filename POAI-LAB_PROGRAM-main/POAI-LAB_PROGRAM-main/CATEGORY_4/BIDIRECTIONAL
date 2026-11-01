@@ -1,0 +1,57 @@
+from collections import deque
+
+def bidirectional_search(graph, start, goal):
+    if start == goal:
+        return [start]
+
+    front_start = {start: [start]}
+    front_goal = {goal: [goal]}
+
+    queue_start = deque([start])
+    queue_goal = deque([goal])
+
+    while queue_start and queue_goal:
+
+        current = queue_start.popleft()
+
+        for neighbour in graph[current]:
+            if neighbour not in front_start:
+                front_start[neighbour] = (
+                    front_start[current] + [neighbour]
+                )
+                queue_start.append(neighbour)
+
+                if neighbour in front_goal:
+                    return (front_start[neighbour] +
+                            front_goal[neighbour][::-1][1:])
+
+        current = queue_goal.popleft()
+
+        for neighbour in graph[current]:
+            if neighbour not in front_goal:
+                front_goal[neighbour] = (
+                    front_goal[current] + [neighbour]
+                )
+                queue_goal.append(neighbour)
+
+                if neighbour in front_start:
+                    return (front_start[neighbour] +
+                            front_goal[neighbour][::-1][1:])
+
+    return None
+
+
+graph = {
+    'A': ['B'],
+    'B': ['A', 'C'],
+    'C': ['B', 'D'],
+    'D': ['C', 'E'],
+    'E': ['D', 'F'],
+    'F': ['E']
+}
+
+start = 'A'
+goal = 'F'
+
+path = bidirectional_search(graph, start, goal)
+print("Path:", path)

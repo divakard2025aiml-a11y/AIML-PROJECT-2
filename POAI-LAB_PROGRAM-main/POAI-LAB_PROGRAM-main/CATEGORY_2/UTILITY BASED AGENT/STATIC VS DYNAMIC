@@ -1,0 +1,46 @@
+# Utility-Based Agent - Energy Consumption Optimizer
+
+def energy_optimizer(environment):
+
+    print("\n------ Energy Consumption Optimizer ------")
+
+    if environment == "static":
+
+        print("Environment : Static")
+        print("Percept     : Power Usage is Stable")
+        print("Utility     : Reduce Energy Cost")
+        print("Action      : Select Efficient Mode")
+        print("Status      : Energy Optimized")
+
+    elif environment == "dynamic":
+
+        print("Environment : Dynamic")
+        print("Percept     : Power Demand Changes")
+        print("Utility     : Maintain Maximum Efficiency")
+        print("Action      : Adjust Energy Usage")
+        print("Status      : Energy Optimized")
+
+    else:
+        print("Invalid Input!")
+
+
+while True:
+
+    print("\n====== Energy Optimizer Menu ======")
+    print("1. Static Environment")
+    print("2. Dynamic Environment")
+    print("3. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        energy_optimizer("static")
+
+    elif choice == "2":
+        energy_optimizer("dynamic")
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid Choice!")

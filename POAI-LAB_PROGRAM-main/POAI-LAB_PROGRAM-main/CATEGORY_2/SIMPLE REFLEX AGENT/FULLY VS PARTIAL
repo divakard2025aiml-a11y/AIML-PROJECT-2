@@ -1,0 +1,45 @@
+# Fully Observable vs Partially Observable - Self Driving Car
+
+def self_driving_car(condition):
+
+    print("\n------ Self Driving Car ------")
+
+    if condition == "fully":
+
+        print("Environment : Fully Observable")
+        print("Percept     : Road, Vehicles and Signals Visible")
+        print("Goal        : Reach Destination Safely")
+        print("Action      : Follow Planned Route")
+        print("Status      : Journey Completed")
+
+    elif condition == "partial":
+
+        print("Environment : Partially Observable")
+        print("Percept     : Some Objects Hidden Due to Fog")
+        print("Goal        : Reach Destination Safely")
+        print("Action      : Use Sensors and Change Route")
+        print("Status      : Journey Completed")
+
+    else:
+        print("Invalid Input!")
+
+
+while True:
+
+    print("\n1. Fully Observable")
+    print("2. Partially Observable")
+    print("3. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        self_driving_car("fully")
+
+    elif choice == "2":
+        self_driving_car("partial")
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid Choice")
